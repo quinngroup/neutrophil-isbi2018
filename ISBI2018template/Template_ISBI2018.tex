@@ -2,12 +2,17 @@
 %          spconf.sty  - ICASSP/ICIP LaTeX style file, and
 %          IEEEbib.bst - IEEE bibliography style file.
 % --------------------------------------------------------------------------
+\pdfoutput=1
 \documentclass{article}
 \usepackage{spconf,amsmath,graphicx,parskip}
 \usepackage{sectsty}
 \usepackage{bbm}
 \usepackage{textcomp}
 \usepackage{siunitx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Accepted to 2018 IEEE International Symposium on Biomedical Imaging}
+\rhead{Copyright \textcopyright 2018 IEEE}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{Eq. \theequation}}
 %\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 \newcommand\norm[1]{\left\lVert#1\right\rVert}
@@ -18,6 +23,7 @@
 % --------------------
 \def\x{{\mathbf x}}
 \def\L{{\cal L}}
+\usepackage{fancyhdr}
 
 % Title.
 % ------
@@ -52,7 +58,7 @@
  \name{Narita Pandhe$^{\star}$ \qquad Balazs Rada$^{\dagger}$ \qquad Shannon Quinn$^{\star}$}
 %
  \address{$^{\star}$ Department of Computer Science \\
-     $^{\dagger}$Department of Infectious Diseases \\
+     $^{\dagger}$ Department of Infectious Diseases  \\
      University of Georgia \\
      naritapandhe@uga.edu, radab@uga.edu, squinn@cs.uga.edu}
 %
@@ -74,7 +80,7 @@ Cell motion and appearance have a strong correlation with cell cycle and disease
 Generative Adversarial Networks, Autoregressive Process, Biological Images
 }
 \end{keywords}
-\vspace{-5pt}
+\vspace{-6pt}
 \setlength{\parskip}{0em}
 \squeezeup
 \section{Introduction}
@@ -85,8 +91,8 @@ Polymorphonuclear neutrophil granulocytes (neutrophils) are the most abundant wh
 Recently, generative models have been extensively utilized for natural images. Examples include Variational Autoencoders \cite{journals/corr/KingmaW13} and Generative Adversarial Networks (GANs) \cite{NIPS2014_5423}. Generative models have the ability to learn the underlying statistical distributions over data and, thus, can generate exemplars of the true data set. It can learn sophisticated conditional relationships  as well. In 2014, \cite{NIPS2014_5423} proposed Generative Adversarial Networks (GANs), a framework for learning generative models. GANs do not rely on training objectives related to log-likelihood. Instead, GAN training can be seen as a competitive game between two models: the generator ($G$) and the discriminator ($D$). Deep Convolutional GANs (DCGANs) \cite{DBLP:journals/corr/RadfordMC15} train convolutional networks in adversarial settings in order to generate natural images from CelebA \cite{liu2015faceattributes}, LSUN \cite{DBLP:journals/corr/YuZSSX15}, and Imagenet datasets \cite{imagenet_cvpr09}. \cite{osokin2017biogans} applied GANs to biological images to study the coexistence of proteins. Initial GAN models suffered from issues including training instabilities and mode collapse, making them harder to use. Active areas of research include novel applications, optimizing the network architecture, developing best training practices, and improving the cost function. \par
 For computer vision systems, motion synthesis is still a challenging task and is drawing more contemporary research attention. Synthesis can be defined as generating new versions of a dataset which follow the distribution of original and is closely related to modeling. \cite{motionfromannotations} presents an algorithm that synthesizes motions based on annotations that describe it. Motion is constructed by splitting segments of movement from a corpus of motion data and assembling them. Each segment is modeled using an autoregressive process. This helps in modeling complicated non-stationary sequences which a single autoregressive process cannot handle. In \cite{armotionsynthesis}, frames of original videos are projected into low-dimensional space and then learned as an AR model. \cite{ad04bba6acd84038b8d6e913b5669b55} extends this approach by overcoming the problems of non-linearities in the data either using a spline-fitting approach or a combined appearance model. Many approaches have employed GANs for video generation and frame prediction. \cite{DBLP:journals/corr/VillegasYHLL17} utilizes two convolutional networks, separating foreground and background imagery, to learn directly from a massive dataset of real-world videos. \par
 In this work, we simulate the behavior of human neutrophils. Considering the limited dataset available, we propose an aggregate application of GANs and AR models. We bifurcate our approach as two tasks: generating neutrophil\textquotesingle s appearance and its motion, capturing the statistics independently. The GAN learns the appearance and spatial statistics, while the AR model captures the temporal aspect. Simulation is then achieved by sampling a point from the appearance space given the temporal dynamics up to the last observation. \par
-\vspace{-0.5cm}
-\vspace{0.18mm}
+\vspace{-0.58cm}
+%\vspace{0.10mm}
 \section{Related Works}
 \squeezeup
 \vspace{-1.5mm}
